@@ -38,3 +38,14 @@ button.addEventListener('click', () => {
     }
   }
 });
+
+
+
+// AN IDEA FOR CREATING A ROW AND A COLUMN WITH THE SAME NUMBER
+// - We pass a number (lets say four)
+// - JS takes this number and created some div elements in that number (now we have four divs)
+// - We style those divs with flexbox to be next each other (for ex: ---- as four divs)
+// - We repeat that process the exact same number of times (for ex: we repeat it four times)
+// - Now we have 2 flexboxes: 
+//    First one for the first row (container) and the divs inside it (flex items)
+//    Second one for the whole rows that we repeated (list items now become the horizontal containers from above ----)
