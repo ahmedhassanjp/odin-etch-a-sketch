@@ -1,7 +1,9 @@
 #grid-cell {
-  background-color: black;
+  background-color: white;
+  border: 0.1px solid black;
   justify-self: stretch;
   align-self: stretch;
+  border-radius: 5px;
 }
 
 #grid-container {
@@ -10,11 +12,26 @@
   height: 500px;
   display: grid;
   gap: 1px;
-  border: 1px solid black;
+  border: 5px solid black;
+  border-radius: 7px;
 }
 
 #button {
+  margin: auto;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+#prompt {
+  align-self: flex-start;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  justify-content: flex-end;
+  gap: 5px;
 }
