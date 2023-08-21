@@ -1,24 +1,33 @@
-function drawSquares (finalNumber) {
-  // Specify number of squares in both sides 
-let divNumber = finalNumber * finalNumber;
-
-// Add the squares to display
 const gridContainer = document.getElementById("grid-container");
-let HtmlToAdd = "";
-for (let i = 1; i <= divNumber; i++) {
-  HtmlToAdd += `<div id="grid-div"></div>`;
-};
-gridContainer.innerHTML = HtmlToAdd;
 
-// Apply the hover effect
-const gridDiv = document.querySelectorAll('#grid-div');
-gridDiv.forEach((div) => {
-  div.addEventListener('mouseenter', () => {
-    div.style.backgroundColor = "white";
-  });
-  div.addEventListener('mouseleave', () => {
-    div.style.backgroundColor = "black";
-  });
+function createGrid(finalNumber) {
+  // Specify number of squares in both sides 
+  let divNumber = finalNumber * finalNumber;
+
+  // Add the squares to display
+  let htmlToAdd = "";
+
+  for (let i = 1; i <= divNumber; i++) {
+    htmlToAdd += `<div id="grid-cell"></div>`;
+  };
+  gridContainer.innerHTML = htmlToAdd;
+  var styles = {
+    "grid-template-columns": `repeat(${finalNumber}, 1fr)`,
+    "grid-template-rows": `repeat(${finalNumber}, 1fr)`,
+    "border": "1px solid black"
+  }
+  Object.assign(gridContainer.style, styles);
+
+
+  // Apply the hover effect
+const gridCells = document.querySelectorAll('#grid-cell');
+gridCells.forEach((cell) => {
+    cell.addEventListener('mouseenter', () => {
+      cell.style.backgroundColor = "white";
+    });
+    cell.addEventListener('mouseleave', () => {
+      cell.style.backgroundColor = "black";
+    });
 });
 }
 
@@ -31,7 +40,7 @@ button.addEventListener('click', () => {
     let finalNumber = Number(promptAnswer);
     console.log(typeof(finalNumber));
     if (Number.isInteger(finalNumber)) {
-      drawSquares(finalNumber);
+      createGrid(finalNumber);
     } else {
       alert("Please enter a number!")
       decideNumber();
@@ -43,7 +52,7 @@ button.addEventListener('click', () => {
 
 // AN IDEA FOR CREATING A ROW AND A COLUMN WITH THE SAME NUMBER
 // - We pass a number (lets say four)
-// - JS takes this number and created some div elements in that number (now we have four divs)
+// - JS takes this number and creates some div elements in that number (now we have four divs)
 // - We style those divs with flexbox to be next each other (for ex: ---- as four divs)
 // - We repeat that process the exact same number of times (for ex: we repeat it four times)
 // - Now we have 2 flexboxes: 
